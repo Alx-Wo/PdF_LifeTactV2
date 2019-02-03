@@ -81,7 +81,8 @@ namespace TactPlay
             if (useRepeatablePattern)
             {
                 lastStamina = currentStamina / maxStamina;
-                IPattern newPattern = Utils.STAMINA_PATTERN_STUDY_2(lastStamina);
+                //IPattern newPattern = Utils.STAMINA_PATTERN_STUDY_2(currentStamina);
+                IPattern newPattern = Utils.HEALT_PATTERN_2(currentStamina);
                 if (repeatablePattern == null || !repeatablePattern.IsRepeating())
                 {
                     repeatablePattern = new RepeatablePattern(newPattern);

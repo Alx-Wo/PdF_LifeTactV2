@@ -263,6 +263,44 @@ namespace TactPlay.Pattern
             }
         }
 
+        internal static IPattern HEALTH_PATTERN_MOTOR(int v, double health)
+        {
+            int hp = (int)Math.Round(health * 100);
+            SimplePattern p = new SimplePattern(HEALTH_MOTOR_NUMBER + 4, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            switch (v)
+            {
+                case 1:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER + 4, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 2:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER + 3, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 3:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER + 2, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 4:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER + 1, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 5:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER + 0, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 6:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER - 1, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 7:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER - 2, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                case 8:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER - 3, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+                default:
+                    p = new SimplePattern(HEALTH_MOTOR_NUMBER + 4, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+                    break;
+            }
+            return p;
+            
+        }
+
         public static IPattern AMMO_PATTERN_6(double ammoLevel)
         {
             if (ammoLevel > 3.0 / 4)
@@ -470,11 +508,19 @@ namespace TactPlay.Pattern
             return pattern;
         }
 
-        public static SimplePattern HEALT_PATTERN_2(double health)
+        public static MultiPattern HEALT_PATTERN_2(double health)
         {
             int hp = (int)Math.Round(health * 100);
-            SimplePattern pattern = new SimplePattern(HEALTH_MOTOR_NUMBER, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
-            return pattern;
+            //SimplePattern pattern = new SimplePattern(HEALTH_MOTOR_NUMBER, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            SimplePattern pattern2 = new SimplePattern(HEALTH_MOTOR_NUMBER + 1, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            SimplePattern pattern3 = new SimplePattern(HEALTH_MOTOR_NUMBER + 2, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            SimplePattern pattern4 = new SimplePattern(HEALTH_MOTOR_NUMBER + 3, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            SimplePattern pattern5 = new SimplePattern(HEALTH_MOTOR_NUMBER + 4, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            //SimplePattern pattern6 = new SimplePattern(HEALTH_MOTOR_NUMBER - 1, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            //SimplePattern pattern7 = new SimplePattern(HEALTH_MOTOR_NUMBER - 2, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            //SimplePattern pattern8 = new SimplePattern(HEALTH_MOTOR_NUMBER - 3, new int[] { 80, 3 * hp + 60, 90, (int)Math.Round(6.5 * hp + 130) }, new double[] { 1.0, 0.0, 1.0, 0.0 });
+            List<IPattern> list = new List<IPattern> { pattern2, pattern3, pattern4, pattern5 };
+            return new MultiPattern(list);
         }
         //public static IPattern HEALT_PATTERN_2(double health)
         //{

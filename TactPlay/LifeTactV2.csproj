@@ -103,6 +103,7 @@
     <Compile Include="Device\Virtual\VirtualVibrationDevice.Designer.cs">
       <DependentUpon>VirtualVibrationDevice.cs</DependentUpon>
     </Compile>
+    <Compile Include="HealthEventHandler2.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

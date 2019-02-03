@@ -47,7 +47,7 @@ namespace TactPlay
             comboBox1.Items.AddRange(comboBox1Items);
             comboBox1.SelectedItem = comboBox1Items[0];
 
-            object[] comboBox2Items = new object[] { "Pattern 1", "Pattern 1b", "Pattern 1c", "Pattern 1d", "Pattern 2", "Pattern 2b", "Pattern 3" };
+            object[] comboBox2Items = new object[] { "Pattern 1", "Pattern 1b", "Pattern 1c", "Pattern 1d", "Pattern 2", "Pattern 2b", "Pattern 3", "Test Motor 1", "Test Motor 2", "Test Motor 3", "Test Motor 4", "Test Motor 5", "Test Motor 6", "Test Motor 7", "Test Motor 8" };
             comboBox2.Items.AddRange(comboBox2Items);
             comboBox2.SelectedItem = comboBox2Items[0];
 
@@ -257,6 +257,30 @@ namespace TactPlay
                 case "Pattern 3":
                     newPattern = new RepeatablePattern(Utils.HEALT_PATTERN_3(health, Utils.HEALT_PATTERN_1(health, vibrationDuration)));
                     numberOfGroupsForTest = -1;
+                    break;
+                case "Test Motor 1":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(1, health));
+                    break;
+                case "Test Motor 2":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(2, health));
+                    break;
+                case "Test Motor 3":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(3, health));
+                    break;
+                case "Test Motor 4":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(4, health));
+                    break;
+                case "Test Motor 5":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(5, health));
+                    break;
+                case "Test Motor 6":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(6, health));
+                    break;
+                case "Test Motor 7":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(7, health));
+                    break;
+                case "Test Motor 8":
+                    newPattern = new RepeatablePattern(Utils.HEALTH_PATTERN_MOTOR(8, health));
                     break;
                 default:
                     break;

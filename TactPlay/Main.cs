@@ -243,7 +243,9 @@ namespace TactPlay
         int stop = 0;
         private async void button7_Click(object sender, EventArgs e)
         {
+            Int32 Adress = int.Parse(textBox2.Text, System.Globalization.NumberStyles.HexNumber);
             this.stop = 0;
+            int oldValue = 100;
             while (this.stop == 0)
             {
                 const int PROCESS_WM_READ = 0x0010;
@@ -251,15 +253,23 @@ namespace TactPlay
                 {
                     Process process = Process.GetProcessesByName("hl2")[0];
                     IntPtr processHandle = OpenProcess(PROCESS_WM_READ, false, process.Id);
-                    Int32 Adress = 0x09AE3720;
+                    //Int32 Adress = 0x09AE3720;
+                    
 
                     int bytesRead = 0;
                     byte[] buffer = new byte[1]; //To read a 1 byte entry
 
                     ReadProcessMemory((int)processHandle, Adress, buffer, buffer.Length, ref bytesRead);
 
-                    Console.WriteLine(buffer[0]);
-                    staminaEventHandler.EventTimer(buffer[0], 100);
+                    
+                    if (oldValue != buffer[0])
+                    {
+                        
+                        oldValue = buffer[0];
+                        staminaEventHandler.EventTimer(((double)buffer[0]/(double)100), 100);
+                        Console.WriteLine(buffer[0]);
+                    }
+                    //
                     await Task.Delay(100);
                 }
                 catch (IndexOutOfRangeException ex)
@@ -283,5 +293,6 @@ namespace TactPlay
         {
             this.stop = 1;
         }
+
     }
 }
