@@ -62,7 +62,8 @@ namespace TactPlay
         //TODO: Remove, we dont need the arma logfile stuff
         private String getLogFilePath()
         {
-            String directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Arma 3\\");
+            //String directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Arma 3\\");
+            String directory = @"C:";
             String[] files = Directory.GetFiles(directory);
             if (files == null || files.Length == 0)
             {
